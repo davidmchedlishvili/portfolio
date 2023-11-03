@@ -1,0 +1,43 @@
+.about-container {
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  border-bottom: 2px solid black;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+p {
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+ul li:before {
+  content: "➤";
+  margin-right: 10px;
+}
+
+.about-container h2:first-of-type {
+  color: orange;
+}

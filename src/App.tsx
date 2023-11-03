@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/home-page";
 import AboutPage from "./pages/about-page";
+import ProjectsPage from "./pages/projects-page";
+import SkillsPage from "./pages/skills-page";
 import "./App.css";
 import Layout from "./components/layout";
 
@@ -20,6 +22,8 @@ function App() {
         {/* Child pages will be displayed here */}
         <Route index element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/skills" element={<SkillsPage />} />
       </Route>,
     ),
   );

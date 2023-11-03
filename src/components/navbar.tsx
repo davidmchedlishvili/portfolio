@@ -25,6 +25,13 @@ function Navbar() {
         </Link>
 
         <Link
+          to={"/about"}
+          className="flex items-center gap-2 hover:underline underline-offset-4"
+        >
+          <h1 className="text-lg">About</h1>
+        </Link>
+
+        <Link
           to={"/projects"}
           className="flex items-center gap-2 hover:underline underline-offset-4"
         >
@@ -32,10 +39,10 @@ function Navbar() {
         </Link>
 
         <Link
-          to={"/about"}
-          className="flex items-center gap-2 hover:underline underline-offset-4"
+           to={"/skills"}
+           className="flex items-center gap-2 hover:underline underline-offset-4"
         >
-          <h1 className="text-lg">About</h1>
+           <h1 className="text-lg">Skills</h1>
         </Link>
       </ul>
 
