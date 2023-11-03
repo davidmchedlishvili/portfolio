@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import DoughnutChart from '../components/doughnutChart';
 
 function SkillsPage() {
+    //initializing the component's state (chartsData) using useState hook.
+    //chartData contains an array of objects representing chart's data.
     const [chartsData, setChartsData] = useState([
         {
             id: 'clientSide',
@@ -31,11 +33,16 @@ function SkillsPage() {
         }
     ]);
 
+    //this function handles data changes. It updates the corresponding data in chartsData state.
     const handleDataChange = (chartId: string, label: string, value: number) => {
+        //current chartsData state is cloned into a new array (not to mutate the state directly).
         const updatedChartsData = [...chartsData];
+        //finds the relevant chart by matching the chart.Id
         const chart = updatedChartsData.find(chart => chart.id === chartId);
         if (chart) {
+            //This line finds the index of the specified label within the labels array of the found chart
             const index = chart.data.labels.indexOf(label);
+            //this code updates the value in the data array of the first dataset (datasets[0]) at the specified index with the new value provided to the function.
             if (index !== -1) {
                 chart.data.datasets[0].data[index] = value;
             }
@@ -43,6 +50,7 @@ function SkillsPage() {
         setChartsData(updatedChartsData);
     };
 
+    //returns the rendered component by iterating over each item in chartsData state.
     return (
         <div className="chart-container">
             {chartsData.map(chart => (

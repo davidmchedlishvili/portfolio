@@ -9,18 +9,25 @@ interface DoughnutChartProps {
     title: string;
 }
 
-//
+
 function DoughnutChart(props: DoughnutChartProps) {
+    //initializing a canvas reference variable with initial value as null.
     const chartRef = useRef<HTMLCanvasElement | null>(null);
+
+    //initializing a chart instance reference variable with initial value as null.
     const chartInstance = useRef<Chart | null>(null);
 
+    //executes below logic when prop.data changes
     useEffect(() => {
+        //checking whether canvas has any reference
         if (chartRef.current) {
+            //checking whether any chart is present. If so, destroy it to build the new one.
             if (chartInstance.current) {
                 chartInstance.current.destroy();
             }
-
+            //fetching the 2D rendering context from the canvas
             const ctx = chartRef.current.getContext('2d');
+            //creating a new chart
             chartInstance.current = new Chart(ctx!, {
                 type: 'doughnut',
                 data: props.data,
@@ -35,6 +42,7 @@ function DoughnutChart(props: DoughnutChartProps) {
                 }
             });
 
+            //cleanup function when component unmounts
             return () => {
                 if (chartInstance.current) {
                     chartInstance.current.destroy();
@@ -43,6 +51,7 @@ function DoughnutChart(props: DoughnutChartProps) {
         }
     }, [props.data]);
 
+    //returns javascript xml (JSX) for new chart component
     return (
         <div className="chart-wrapper">
             <h2>{props.title}</h2>
